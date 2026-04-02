@@ -1,9 +1,4 @@
-variable "bucket_name" {
-  type = string
-  description = "Bucket name"
-}
-
-variable "sqs_name" {
+variable "queue_name" {
   type = string
   description = "SQS name"
 }
