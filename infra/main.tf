@@ -1,9 +1,6 @@
-resource "aws_s3_bucket" "pipeline_s3_bucket" {
-  bucket = var.bucket_name
+module "s3_bucket" {
+  source = "./modules/s3"
 
-  tags = {
-    FromTerraform = true
-    Environment = terraform.workspace
-    Project = var.project
-  }
+  bucket_name = var.bucket_name
+  project     = var.project
 }
