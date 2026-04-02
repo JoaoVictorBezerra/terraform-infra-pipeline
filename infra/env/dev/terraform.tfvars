@@ -1,2 +1,2 @@
-bucket_name = "pipeline_dev"
+bucket_name = "tf-dev-pipe"
 project = "pipeline"
