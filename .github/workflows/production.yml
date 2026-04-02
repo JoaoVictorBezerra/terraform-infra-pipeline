@@ -1,0 +1,20 @@
+name: "PROD DEPLOY"
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  terraform:
+    uses: ./.github/workflows/terraform.yml
+    with:
+      aws-assume-role-arn: 'arn:aws:iam::790856971473:role/github-actions-joaovictorbezerra'
+      aws-lock-dynamo-db-table: 'joaovictorbezerra-us-east-2-terraform-lock'
+      aws-region: 'us-east-2'
+      aws-statefile-s3-bucket: 'joaovictor-us-east-2-terraform-statefile'
+      environment: 'prod'
