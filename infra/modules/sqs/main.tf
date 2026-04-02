@@ -1,5 +1,5 @@
 resource "aws_sqs_queue" "dlq" {
-  name = "${var.queue_name}_dlq"
+  name = "${var.queue_name}_${terraform.workspace}_dlq"
   message_retention_seconds = 1209600
   sqs_managed_sse_enabled   = true
 
@@ -11,7 +11,7 @@ resource "aws_sqs_queue" "dlq" {
 }
 
 resource "aws_sqs_queue" "sqs" {
-  name = var.queue_name
+  name = "${var.queue_name}_${terraform.workspace}"
   message_retention_seconds = 345600
 
   redrive_policy = jsonencode({

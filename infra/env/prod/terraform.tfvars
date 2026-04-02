@@ -1,3 +1,3 @@
-bucket_name = "tf-prod-pipe"
+bucket_name = "tf-onetwo"
 project     = "pipeline"
-sqs_name = "my_sqs"
+sqs_name = "onetwo"
